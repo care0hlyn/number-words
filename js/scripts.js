@@ -3,6 +3,7 @@ var numberWords = function(number) {
 
   var lessThanTwenty = {
 
+    "0": "",
     "1": "one",
     "2": "two",
     "3": "three",
@@ -25,35 +26,49 @@ var numberWords = function(number) {
   };
 
   var tens = {
-    "20": "twenty",
-    "30": "thirty",
-    "40": "forty",
-    "50": "fifty",
-    "60": "sixty",
-    "70": "seventy",
-    "80": "eighty",
-    "90": "ninety"
+    "2": "twenty",
+    "3": "thirty",
+    "4": "forty",
+    "5": "fifty",
+    "6": "sixty",
+    "7": "seventy",
+    "8": "eighty",
+    "9": "ninety"
   };
 
 // var splitNumber = number.split("");
-console.log("hello");
-var doubleDigit =[];
-var twoDigit = tens[number] + " " + lessThanTwenty[number];
+// console.log("hello");
+// var doubleDigit =[];
+// var twoDigit = tens[number] + " " + lessThanTwenty[number];
+var sNumber = number.split("");
+var result;
+// var integer = number.parseInt();
+// var indexOne = sNumber[0];
+// var indexTwo = sNumber[1];
+// var indexOneString = indexOne.toString();
+// var indexTwoString = indexTwo.toString();
 
 
   // for (var i = 0; i < number.lengths; i++) {
-    if (number < 20) {
-      return lessThanTwenty[number];
-    } else if ((number < 100) && (number >= 20)) {
-      return tens[number];
-    } else if ((number/10) !== 0)  {
-      return tens[number] + " " + lessThanTwenty[number];
+    if (number <= 20) {
+      result = lessThanTwenty[number];
+      // result = tens[sNumber[0]];
+    } else if (number <= 9) {
+      result = tens[sNumber[0]];
+    } else if ((number % 10) !== 0) {
+      result = tens[sNumber[0]] + " " + lessThanTwenty[sNumber[1]];
+      // result = tens[number];
     }
-      // console.log(number[0,1])
+    // } else if (number  )   {
+    //   // return tens[(indexOne)*10] + " " + lessThanTwenty[(indexTwo)];
+    //   // result = tens[sNumber[0]] + " " + lessThanTwenty[sNumber[1]];
+    // }
 
-      // doubleDigit.push();
-      // doubleDigit.push(number[1]);
-
-      // return tens[number];
+    return result;
 };
 
+
+      // tens[number] + " " + lessThanTwenty[number];
+      // doubleDigit.push();
+      // doubleDigit.push(number[1]);
+      // return tens[number];
